@@ -1,0 +1,18 @@
+{
+  "aee638c5cbf2121b20d82d04f89c3653d16e10f39867790655995d5feec91ad6": {
+    "name": "fetchAllStudents",
+    "source": "query fetchAllStudents {\n  getAllStudents {\n    __typename\n    id\n    name\n    sex\n    age\n    tutor {\n      __typename\n      id\n      name\n      sex\n      qualification\n    }\n    games\n  }\n}"
+  },
+  "8e8f76187a83d61851a34c2654fb4b5832c8997cbe0dd6902cd9c2cd023a3a00": {
+    "name": "studentById",
+    "source": "query studentById($id: Int!) {\n  getStudentById(id: $id) {\n    __typename\n    id\n    name\n    sex\n    age\n    tutor {\n      __typename\n      id\n      name\n      sex\n      qualification\n    }\n    games\n  }\n}"
+  },
+  "c0200c51bd920572ccc848665365b0c3d09a312b7fa0333c4d9630fcb0771c7a": {
+    "name": "fetchAllTutors",
+    "source": "query fetchAllTutors {\n  getTutors {\n    __typename\n    name\n    id\n    sex\n    qualification\n  }\n}"
+  },
+  "ec2547a95712a26b47d585c9ff5fe6caa35d3b0e2549e08936d519b770bbfde1": {
+    "name": "addTutor",
+    "source": "mutation addTutor($id: Int, $name: String, $sex: String, $qualification: String) {\n  addTutor(id: $id, name: $name, sex: $sex, qualification: $qualification) {\n    __typename\n    id\n    name\n    sex\n    qualification\n  }\n}"
+  }
+}
