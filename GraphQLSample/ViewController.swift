@@ -37,28 +37,6 @@ class ViewController: UIViewController {
             }
         }
     }
-    
-    @IBAction func apqAction(_ sender: Any) {
-        
-        
-    }
-    
-    @IBAction func normalAction(_ sender: Any) {
-        
-//        Network.shared.apollo.fetch(query: FetchAllTutorsQuery(), cachePolicy: .fetchIgnoringCacheData) { result in
-//            guard let data = try? result.get().data else { return }
-//            let json = data.jsonObject
-//            do {
-//                let serialized = try JSONSerialization.data(withJSONObject: json, options: [.prettyPrinted])
-//                print(String(decoding: serialized, as: UTF8.self))
-////                let deserialized = try! JSONSerialization.jsonObject(with: serialized, options: [.mutableContainers]) as! JSONObject
-////                print(deserialized)
-//            } catch {
-//                print(error.localizedDescription)
-//            }
-//        }
-    }
-    
 }
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate {

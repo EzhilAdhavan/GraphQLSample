@@ -14,9 +14,8 @@
 		2A3DEB2E24325F1E00AD17ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A3DEB2C24325F1E00AD17ED /* Main.storyboard */; };
 		2A3DEB3024325F2100AD17ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A3DEB2F24325F2100AD17ED /* Assets.xcassets */; };
 		2A3DEB3324325F2100AD17ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A3DEB3124325F2100AD17ED /* LaunchScreen.storyboard */; };
-		2A3DEB3E2432716700AD17ED /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3DEB3D2432716700AD17ED /* API.swift */; };
+		2AA92FD7243777C3000526F6 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA92FD6243777C3000526F6 /* API.swift */; };
 		2ACD12B72433033500F413A2 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACD12B62433033500F413A2 /* NetworkManager.swift */; };
-		2ACD12B92433505500F413A2 /* projects.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 2ACD12B82433505500F413A2 /* projects.graphql */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,9 +28,8 @@
 		2A3DEB2F24325F2100AD17ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2A3DEB3224325F2100AD17ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2A3DEB3424325F2100AD17ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2A3DEB3D2432716700AD17ED /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		2AA92FD6243777C3000526F6 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = SOURCE_ROOT; };
 		2ACD12B62433033500F413A2 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		2ACD12B82433505500F413A2 /* projects.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = projects.graphql; sourceTree = "<group>"; };
 		86F3575C2B1A46A98BC032E2 /* Pods-GraphQLSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraphQLSample.release.xcconfig"; path = "Target Support Files/Pods-GraphQLSample/Pods-GraphQLSample.release.xcconfig"; sourceTree = "<group>"; };
 		B4B790289960CED07EE24424 /* Pods_GraphQLSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GraphQLSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -86,8 +84,7 @@
 		2A3DEB2524325F1E00AD17ED /* GraphQLSample */ = {
 			isa = PBXGroup;
 			children = (
-				2ACD12B82433505500F413A2 /* projects.graphql */,
-				2A3DEB3D2432716700AD17ED /* API.swift */,
+				2AA92FD6243777C3000526F6 /* API.swift */,
 				2A3DEB2624325F1E00AD17ED /* AppDelegate.swift */,
 				2ACD12B62433033500F413A2 /* NetworkManager.swift */,
 				2A3DEB2824325F1E00AD17ED /* SceneDelegate.swift */,
@@ -112,8 +109,8 @@
 				2A3DEB2024325F1E00AD17ED /* Frameworks */,
 				2A3DEB2124325F1E00AD17ED /* Resources */,
 				D4473FDF126FC3F780226F68 /* [CP] Embed Pods Frameworks */,
-				2A3DEB3A2432646100AD17ED /* ShellScript */,
-				2AA92FD12437243D000526F6 /* Test Script */,
+				2AA92FD2243735D3000526F6 /* ShellScript */,
+				2A3DEB3A2432646100AD17ED /* Apollo Script */,
 			);
 			buildRules = (
 			);
@@ -165,14 +162,13 @@
 				2A3DEB3324325F2100AD17ED /* LaunchScreen.storyboard in Resources */,
 				2A3DEB3024325F2100AD17ED /* Assets.xcassets in Resources */,
 				2A3DEB2E24325F1E00AD17ED /* Main.storyboard in Resources */,
-				2ACD12B92433505500F413A2 /* projects.graphql in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2A3DEB3A2432646100AD17ED /* ShellScript */ = {
+		2A3DEB3A2432646100AD17ED /* Apollo Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -181,15 +177,16 @@
 			);
 			inputPaths = (
 			);
+			name = "Apollo Script";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "SCRIPT_PATH=\"${PODS_ROOT}/Apollo/scripts\"\ncd \"${SRCROOT}/${TARGET_NAME}\"\n\"${SCRIPT_PATH}\"/run-bundled-codegen.sh codegen:generate --target=swift --includes=./**/*.graphql --localSchemaFile=\"schema.json\" --operationIdsPath=operationIdsPath.json --mergeInFieldsFromFragmentSpreads API.swift\n";
+			shellScript = "SCRIPT_PATH=\"${PODS_ROOT}/Apollo/scripts\"\necho \"SCRIPT_PATH...${SCRIPT_PATH}\"\nFILE_PATH=\"${SRCROOT}/${TARGET_NAME}/GRAPHQL\"\nmkdir ${FILE_PATH}\necho \"FILE_PATH....$FILE_PATH\"\necho \"**********************\"\ncurl https://ezhil-sample.s3-us-west-2.amazonaws.com/projects.graphql > ${FILE_PATH}/Projects.graphql\ncurl https://ezhil-sample.s3-us-west-2.amazonaws.com/schema.json > ${FILE_PATH}/schema.json\n\"${SCRIPT_PATH}\"/run-bundled-codegen.sh codegen:generate --target=swift --includes=${FILE_PATH}/*.graphql --localSchemaFile=${FILE_PATH}/schema.json --operationIdsPath=operationIdsPath.json --mergeInFieldsFromFragmentSpreads API.swift\nrm -r $FILE_PATH\nrm operationIdsPath.json\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
 		};
-		2AA92FD12437243D000526F6 /* Test Script */ = {
+		2AA92FD2243735D3000526F6 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -198,14 +195,13 @@
 			);
 			inputPaths = (
 			);
-			name = "Test Script";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\necho \"Ezhil Adhavan This works\"\n";
+			shellScript = "#curl https://ezhil-sample.s3-us-west-2.amazonaws.com/schema.json\necho \"Target Name...${SRCROOT}/${TARGET_NAME}\"\necho \"File downloaded******\"\n";
 		};
 		7EF73A5611255E5112EC34A3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -256,8 +252,8 @@
 				2A3DEB2B24325F1E00AD17ED /* ViewController.swift in Sources */,
 				2A3DEB2724325F1E00AD17ED /* AppDelegate.swift in Sources */,
 				2ACD12B72433033500F413A2 /* NetworkManager.swift in Sources */,
-				2A3DEB3E2432716700AD17ED /* API.swift in Sources */,
 				2A3DEB2924325F1E00AD17ED /* SceneDelegate.swift in Sources */,
+				2AA92FD7243777C3000526F6 /* API.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

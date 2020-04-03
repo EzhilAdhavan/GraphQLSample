@@ -17,8 +17,8 @@ class Network {
     
     // Configure the network transport to use the singleton as the delegate.
     private lazy var networkTransport: HTTPNetworkTransport = {
-       //let transport = HTTPNetworkTransport(url: URL(string: "http://localhost:4000/graphql")!, sendOperationIdentifiers: true, useGETForQueries: false, enableAutoPersistedQueries: true, useGETForPersistedQueryRetry: true)
-        let transport = HTTPNetworkTransport(url: URL(string: "http://localhost:4000/graphql")!)
+       let transport = HTTPNetworkTransport(url: URL(string: "http://localhost:4000/graphql")!, sendOperationIdentifiers: false, useGETForQueries: true, enableAutoPersistedQueries: true, useGETForPersistedQueryRetry: true)
+        //let transport = HTTPNetworkTransport(url: URL(string: "http://localhost:4000/graphql")!)
         transport.delegate = self
         return transport
     }()
