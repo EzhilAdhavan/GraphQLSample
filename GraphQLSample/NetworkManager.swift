@@ -34,6 +34,9 @@ extension Network: HTTPNetworkTransportPreflightDelegate {
     func networkTransport(_ networkTransport: HTTPNetworkTransport,
                           shouldSend request: URLRequest) -> Bool {
         // If there's an authenticated user, send the request. If not, don't.
+        print("request..\(request)")
+        print("request.httpBody...\(request.httpBody ?? Data())")
+        print("Body...\(String.init(data: request.httpBody ?? Data(), encoding: .utf8))")
         return true
     }
     

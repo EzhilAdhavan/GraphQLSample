@@ -1,0 +1,5 @@
+query tutorById($tutorId: Int!) {
+  getTutorById(id: $tutorId) {
+    name
+  }
+}

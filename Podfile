@@ -7,5 +7,6 @@ target 'GraphQLSample' do
 
   # Pods for GraphQLSample
 	pod 'Apollo'
+  #pod "Apollo", '= 0.21.0'
 
 end
